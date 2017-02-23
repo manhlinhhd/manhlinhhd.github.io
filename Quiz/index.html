@@ -1,0 +1,347 @@
+<html>
+	<head>
+  <title>Chương trình Quiz Đơn giản</title>
+  <meta charset="UTF-8" />
+  <style>
+	.traloi{
+		cursor:pointer;
+	}
+	.container{
+		width:100%;
+		height: 500px;
+		background: grey;
+		
+	}
+	.content{
+		margin: 0 auto;
+		text-align:center;
+		background:blue;
+		height:400px;
+		width:50%;
+		border-radius:10px;
+		padding-top: 40px;
+	}
+	.traloi{
+		margin: 0 auto;
+		background:yellow;
+		height:auto;
+		width:40%;
+		text-align:center;
+		margin-top:20px;
+		border-radius:5px;
+	}
+	.traloi:hover{
+		color:red;
+		opacity:0.7;
+		transform: translate(0,-2px);
+		box-shadow: 5px 5px 5px 0px rgba(0,0,0,1);
+	}
+	h1{
+		color:white;
+	}
+	.btn:hover{
+		opacity:0.7;
+		transform: translate(0,-2px);
+		box-shadow: 5px 5px 5px 0px rgba(0,0,0,1);
+	}
+	.btn{
+		width:100px;
+		border-radius:5px;
+	}
+	marquee{
+			text-align:center;
+			margin-left: 120px;
+			color: red;
+			font-size: 30px;
+		}
+  </style>
+	<script language="JavaScript">
+		var arrayQuiz =[];
+		var cauhoi1 = {
+			content :"Hà nội là thủ đô của nước nào?",
+			result :"Việt Nam",
+			Identity :1
+		};
+		var cauhoi2={
+			content : "Móng cái là Thành phố của tỉnh nào?",
+			result : "Quảng Ninh",
+			Identity :2
+		};
+		var cauhoi3={
+			content : "Hà Giang nằm ở đâu việt Nam?",
+			result : "Đông Bắc",
+			Identity :3
+		};
+		var cauhoi4={
+			content : "Một năm có mấy mùa?",
+			result : "4 mùa",
+			Identity :4
+		};
+		var cauhoi5={
+			content : "Paris là thủ đô của nước nào?",
+			result : "Pháp",
+			Identity :5
+		};
+		var cauhoi6={
+			content : "1+5=?",
+			result : "Sáu",
+			Identity :6
+		};
+		var cauhoi7={
+			content : "Một năm có bào nhiêu tháng?",
+			result : "12 tháng",
+			Identity :7
+		};
+		var cauhoi8={
+			content : "Tên thường gọi của ô tô?",
+			result : "Xe hơi",
+			Identity : 8
+		};
+		var cauhoi9={
+			content : "Đại học Mỏ Địa chất thành lập năm nào ?",
+			result : "năm 1956",
+			Identity :9
+		};
+		var cauhoi10={
+			content : "Cơ học kết cấu phục vụ cho ngành nào?",
+			result : "Xây dựng",
+			Identity :10
+		};
+		arrayQuiz = [cauhoi1,cauhoi2,cauhoi3,cauhoi4,cauhoi5,cauhoi6,cauhoi7,cauhoi8,cauhoi9,cauhoi10];
+		//-------------------------------------------------
+		var arrayResult1_1=[];
+		var cauhoi1_1 = {
+			result1 :"Việt Nam",
+			Identity1:1
+		};
+		var cauhoi2_1={
+			result1 : "Quảng Ninh",
+			Identity1 :2
+		};
+		var cauhoi3_1={
+			result1 : "Đông Bắc",
+			Identity1 : 3
+		};
+		var cauhoi4_1={
+			result1 : "4 mùa",
+			Identity1 : 4
+		};
+		var cauhoi5_1={
+			result1 : "Pháp",
+			Identity1 : 5
+		};
+		var cauhoi6_1={
+			result1 : "Bảy",
+			Identity1 : 6
+		};
+		var cauhoi7_1={
+			result1 : "12 tháng",
+			Identity1 :7
+		};
+		var cauhoi8_1={
+			result1 : "Xe hơi",
+			Identity1 :8
+		};
+		var cauhoi9_1={
+			result1 : "năm 1956",
+			Identity1 :9
+		};
+			var cauhoi10_1={
+			result1 : "Xây dựng",
+			Identity :10
+		};
+		arrayResult1_1=[cauhoi1_1,cauhoi2_1,cauhoi3_1,cauhoi4_1,cauhoi5_1,cauhoi6_1,cauhoi7_1,cauhoi8_1,cauhoi9_1,cauhoi10_1];
+		//-------------------------------------------------
+		var arrayResult1=[];
+		var DapAn1={
+			result2 : "Nga",
+			Stt: 12
+		};
+		var DapAn2={
+			result2 :"Hà nội",
+			Stt : 13
+		};
+		var DapAn3={
+			result2 : "Tay bắc",
+			Stt : 14
+		};
+		var DapAn4={
+			result2:"Năm mùa",
+			Stt : 15
+		};
+		var DapAn5={
+			result2 :"Mỹ",
+			Stt : 16
+		};
+		var DapAn6={
+			result2 : "Tám",
+			Stt : 17
+		};
+		var DapAn7={
+			result2 :"15 tháng",
+			Stt : 18
+		};
+		var DapAn8={
+			result2 :"Công nông",
+			Stt : 19
+		};
+		var DapAn9={
+			result2 :"năm 1985",
+			Stt : 20
+		};
+		var DapAn10={
+			result2 :"Kinh tế",
+			Stt : 21
+		};
+		arrayResult1 = [DapAn1,DapAn2,DapAn3,DapAn4,DapAn5,DapAn6,DapAn7,DapAn8,DapAn9,DapAn10];
+		//----------------------------------------------------------------------------------
+		var arrayResult2=[];
+		var DapAn12={
+			result3 : "Lào",
+			Stt: 22
+		};
+		var DapAn22={
+			result3 :"Huế",
+			Stt : 23
+		};
+		var DapAn32={
+			result3 :"Tây Nam",
+			Stt : 24
+		};
+		var DapAn42={
+			result3 :"Sáu mùa",
+			Stt : 25
+		};
+		var DapAn52={
+			result3 :"Áo",
+			Stt : 26
+		};
+		var DapAn62={
+			result3 :"Sáu",
+			Stt : 27
+		};
+		var DapAn72={
+			result3 :"18 tháng",
+			Stt : 28
+		};
+		var DapAn82={
+			result3 :"Xe thồ",
+			Stt : 29
+		};
+		var DapAn92={
+			result3 :"năm 1986",
+			Stt : 20
+		};
+		var DapAn102={
+			result3 :"Ngoại ngữ",
+			Stt : 22
+		
+		};
+		arrayResult2=[DapAn12,DapAn22,DapAn32,DapAn42,DapAn52,DapAn62,DapAn72,DapAn82,DapAn92,DapAn102];
+		var tam=0;
+		function checktime(i)
+		{
+			if(i<10)
+				{
+					i = "0" +i;
+				}
+			return i;
+		}
+		function tangi()		//hàm lấy giá trị của câu hỏi tiếp theo
+		{
+			var el = document.getElementsByClassName("traloi");
+			document.getElementById("cauhoi").innerHTML = arrayQuiz[tam].content;
+			document.getElementById("cautraloi0").innerHTML = arrayResult1_1[tam].result1;
+			document.getElementById("cautraloi1").innerHTML = arrayResult1[tam].result2;
+			document.getElementById("cautraloi2").innerHTML = arrayResult2[tam].result3;
+			document.getElementById("note").innerHTML="";
+			el[0].hidden=false;		// khi chuyển sang câu hỏi tiếp theo thì các câu hỏi sẽ ko bị ẩn 
+			el[1].hidden=false;
+			el[2].hidden=false;	
+			setTimeout(function(){location.href="https://www.youtube.com/watch?v=lWA2pjMjpBs";},20000);	//hàm ấn định thời gian trả lời câu hỏi
+			tam++;			//Biến đếm tăng giá trị để lấy nội dung câu hỏi tiếp theo
+		}
+		var dem=0;
+		var tam1=""; //biến tam1 dùng để lưu lại nội dung của câu trước
+		function laygiatri(obj)
+		{
+			var x = obj.innerHTML;
+			var y= obj.id;
+			var El = document.getElementsByClassName("traloi");
+		if(x!=tam1)  // kiểm tra điều kiện không cho chọn 2 lần cho 1 câu trả lời
+		{	
+			for(var i= 0; i<arrayQuiz.length; i++)
+				{
+					
+					if(x == arrayQuiz[i].result)
+						{
+							dem++;							
+						}
+				}
+				if(y=="cautraloi0")  // nếu chọn câu trả lời 1 thì sẽ ẩn hai kết quả còn lại để người chơi không được chọn nữa
+					{
+						El[1].hidden=true;
+						El[2].hidden=true;
+				}
+				else if(y=="cautraloi1")
+					{
+						El[0].hidden=true;
+						El[2].hidden=true;
+					}
+				else if(y=="cautraloi2")
+					{
+						El[0].hidden=true;
+						El[1].hidden=true;
+					}
+				document.getElementById("dapan").innerHTML = dem;
+				y = "";
+				tam1 = x; // sau khi thoát khỏi hàm thì gán giá trị  tiếp theo cho biến tam1 để tiếp tục kiểm tra cho lần chọn tiếp theo
+			}
+		else
+			{
+				document.getElementById("note").innerHTML="Bạn không chọn được nữa!";
+				return;
+			}
+			
+		}
+		function sosanhketqua()
+			{
+				if(dem>5)
+				{
+					location.href="ChucMung.html";
+				}
+				else
+				{
+					location.href="#";
+				}
+			}
+
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		
+		<div class="content">
+			<div>
+				<marquee>CHƯƠNG TRÌNH QUIZ ĐƠN GIẢN</marquee>
+			</div>
+				<h1 id="cauhoi"></h1>
+				<p id="cautraloi0" class="traloi"onclick="laygiatri(this)"></p>
+				<p id="cautraloi1"class="traloi"onclick="laygiatri(this)"></p>
+				<p id="cautraloi2"class="traloi"onclick="laygiatri(this)"></p>
+				<p id="dapan"></p>
+				<p id="note"></p>
+			<form>
+				<button type="button" class="btn"id="btn" value="next" onclick="tangi()">Next</button>
+				<button type="button" class="btn"id="btn1" value="kt" onclick="sosanhketqua()">Result</button>
+			</form>
+			<div >
+				<p>Hãy bấm vào Nút Next để hiển thị câu hỏi và thời gian trả lời là 20s</p>
+			</div>
+		</div>
+		
+		
+	</div>
+</body>
+</html>
