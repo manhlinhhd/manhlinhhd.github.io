@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>MemoryCard</title>
+  <meta charset="UTF-8" />
+	<script src="js/jquery.min.js"></script>
+	<script language="JavaScript">
+		var cards = ['f1','f2','f3','f4','f5','f6','f7','f8','f9','f11','f12'];
+		var current="";
+		function shuffle(array)
+		{
+			var curentIndex = array.length, temporaryValue, randomIndex;
+			while(curentIndex!=0)
+			{
+				randomIndex = Math.floor(Math.random()*curentIndex);
+				curentIndex -=1;
+				//doi cho cac phan tu
+				temporaryValue = array[curentIndex];
+				array[curentIndex] = array[randomIndex];
+				array[randomIndex] = temporaryValue;
+			}
+		return array;
+		}
+		
+		$(function(){
+			cards = cards.concat(cards);
+			cards = shuffle(cards);
+			var html="";
+			for(var i=0; i< cards.length; i++)
+				{
+					html+= '<div class="grid">' + '<div class="card" data-name="' + cards[i] +'"onclick="flip(this)">'+
+					'<div class="front"><img style ="height:150px;width:90px;"src="img/back.jpg"/></div>'+
+					'<div class="back"><img style ="height:150px;width:90px;"src="img/'+cards[i]+'.jpg"/></div>' +
+					'</div></div>';
+				}
+			$('.content').html(html);
+			
+		});
+		var Crt="";
+		var diem=0;
+		function flip(card){			
+			$(card).addClass("flipped");
+			var temporaryValue = $(card);
+			if(!Crt){
+				Crt = temporaryValue;
+				Crt.css("pointer-events","none");
+			}
+			else{
+				if(Crt.attr("data-name")!= temporaryValue.attr("data-name"))
+					{
+						console.log("khac nhau");
+						setTimeout(function(){
+							Crt.removeClass("flipped");
+							temporaryValue.removeClass("flipped");
+							Crt="";
+						},500);
+						Crt.css("pointer-events","auto");
+					}
+				else
+				{						
+						//console.log("giong nhau");	
+						diem++;
+						$("#Mark").text(diem);
+						setTimeout(function(){
+						Crt.css("opacity","0");
+						temporaryValue.css("opacity","0");
+						Crt="";
+						},200)		
+				}
+			
+			
+			}
+		}
+	function MyBar(){
+		$("#form").hide();
+		$(".content").show();
+		var el = document.getElementById("myProgress");
+		var id= setInterval(Run,1000);
+		function Run(){
+			if(el.value >=60)
+			{
+				clearInterval(id);
+				alert("Lost!");
+				$(".content").find(".card").css("pointer-events","none");//chon class content tim den the Card va khong cho nguoi choi kich vao khi het gio
+			}
+			else{
+				el.value+=1;
+			}
+		}
+	} 
+	function Reload()
+		{
+			location.reload();
+		}
+	</script>
+<style>
+body{
+	background-image:url("img/img12.jpg");
+}
+.grid .card.flipped{
+	transform: rotateY(180deg);
+}
+.grid{
+	margin-top: 20px;
+	display:inline-block;
+	margin-right:10px;
+	margin-left:20px;	
+}
+.content{
+	text-align:center;
+	margin-top:20px;
+	display:none;
+}
+ .grid .card{
+	transform-style: preserve-3d;
+	transition: all 1s;	
+}
+.grid .card .front{
+	position:absolute;
+	top:0;
+	left:0;	
+	}
+.grid .card .back{
+
+    transform:rotateY(180deg);
+}
+	#snow{
+	background: none;
+	font-family: Androgyne;
+	background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index:1;
+	-webkit-animation: snow 10s linear infinite;
+	-moz-animation: snow 10s linear infinite;
+	-ms-animation: snow 10s linear infinite;
+	animation: snow 10s linear infinite;
+}
+@keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+.Bar{
+	text-align:center;
+	margin-top:10px;
+	position:relative;
+}
+#myProgress{
+	width:600px;
+	height:30px;
+}
+#form{
+	width:100%;
+	height:630px;
+	background:grey;
+	opacity:0.5;
+	position:relative;
+}
+#btn{
+	position:absolute;
+	top: 300px;
+    left: 650px;
+	width:80px;
+	height:30px;
+	border-radius: 10px;
+}
+#btn1{
+	width:80px;
+	height:30px;
+	border-radius: 10px;
+	position:absolute;
+	right: 273px;
+}
+#Mark{
+	width:90px;
+	height:30px;
+	background:grey;
+	position:absolute;
+	top: -18px;
+    right: 173px;
+	color:red;	
+}
+</style>
+</head>
+<body>
+
+<div id="snow">
+	<div class="Bar">
+		<progress id="myProgress" value="1" max="60"></progress>	
+		<button type="button" id="btn1" class="btn" value="reset"onclick="Reload()">Reset</button>
+		<p id="Mark"></p>
+	</div>
+	<div>
+		<form id="form">
+			<button type="button"id="btn"class="btn"value="batdau"onclick="MyBar()">Start</button>				
+		</form>
+	</div>
+<p class="content"></p>
+</div>
+</body>
+</html>
