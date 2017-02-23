@@ -1,0 +1,252 @@
+<html>
+	<head>
+  <title>bai1-renhanh1</title>
+  <meta charset="UTF-8" />
+	
+	<style>
+		
+	</style>
+</head>
+
+<body>
+	<script language="JavaScript">
+	var now = new Date();
+		function Inngaythang()
+			{
+				
+			}
+	
+		function Season( thang )
+			{
+				switch(thang)
+					{
+						case 1:
+						case 2:
+						case 3:
+						
+							return "xuân";
+							break;
+						case 4:
+						case 5:
+						case 6:
+							return "Hạ";
+							break;
+						case 7:
+						case 8:
+						case 9:
+							return "Thu";
+							break;
+						case 10:
+						case 11:
+						case 12:
+							return "Đông";
+							break;
+					}
+			}
+			var date=now.getDate();
+			var month=now.getMonth() + 1;
+			var year=now.getFullYear();
+		document.write("<b>---------Bài 1-------</b><BR>");
+		document.write("In ngày tháng năm hiện tại và cho biết là mùa nào trong năm <BR>");
+		document.write("<b>Kết quả</b><BR>");
+		document.write("Hôm nay là ngày:" +date + " Tháng " + month + " Năm " + year + " là mùa "+ Season(month));
+//Bài 2-----------------------------------------------------------------------
+	var chuoi=012233;
+	//Hàm kiểm tra chuỗi xem có phải chuỗi hay là số
+	function kiemtrachuoi(chuoi) 
+		{
+			if(typeof chuoi == "string")
+			{
+				return 1;
+			}
+			return 0;
+		}
+	//Hàm chuyển từ số sang chuỗi
+	function Convert(string)
+		{
+			if(kiemtrachuoi(string)==0)
+				{
+					return string.toString();
+				}
+			 
+		}
+	//Hàm cắt chuỗi nếu >10 ký tự
+	function catchuoi(string)
+		{
+			var trunggian=string.slice(0,10);
+				trunggian= trunggian + "..."
+				return trunggian;
+		}
+		
+	//Phần thân chương trình
+	document.write("<BR>");
+	document.write("<b>---------Bài 2------</b><BR>");
+	if(kiemtrachuoi(chuoi)==1) {
+			if(chuoi.length<=10)		
+				document.write(chuoi);
+			else if(chuoi.length>10)
+				{
+					document.write(catchuoi(chuoi));
+					
+				}
+	}
+	else
+	{
+			var tg=Convert(chuoi);
+				if(tg.length <=10)
+					{
+						document.write(tg);
+					}
+				else if(tg.length>10)
+					{
+						document.write(catchuoi(tg));
+						
+					}
+			
+			
+	}
+// Bài 3---------------------------------------------------
+	function TestNum(x)
+	{
+		if((x>=0 && x<=10 )&& (typeof x=="number"))
+			{
+				return 1;
+			}
+			return 0;
+	
+	}
+	function ConvertMark(x)
+		{
+			if(TestNum(x)==0)
+			{
+				return "Điểm không hợp lệ!Hãy nhập lại điểm";
+			}
+			else
+			{
+				if(x>=0 && x<=3.9)
+					{
+						return "Điểm F";
+					}
+				else if( x >=4 && x<=5.4)
+					{
+						return "Điểm D";
+					}
+				else if(x>=5.5 && x<=6.9)
+					{
+						return "Điểm C";
+					}
+				else if(x>=7 && x<=8.4)
+					{
+						return "Điểm B";
+					}
+				else if(x>=8.5 && x<=10)
+					{
+						return"Điểm A";
+					}
+			}
+		}
+		var mark=10;
+	document.write("<BR>");
+	document.write("<b>---------Bài 3------</b><BR>");
+	document.write("Điểm nhập vào là: "+mark +"<BR>")
+	document.write("Bạn đạt điểm "+ConvertMark(mark));
+//Bài 4-------------------------------------------------
+	function Translate(Ma)
+		{
+			switch(Ma)
+				{
+					case 0:{
+						return "B lo";
+						break;
+						}
+					case 1: 
+					{
+						return "Bonjour";
+						break;
+					}
+					case 3: 
+					{
+						return "Hello";
+						break;
+					}
+					case 4:
+					{
+						return "Ní hảo";
+						break;
+					}
+					case 5:
+					{
+						return "aloo";
+						break;
+					}
+					default :{
+						return "Xin chào";
+						
+						}
+				}
+		}
+	var ma=44444444444;
+	document.write("<BR>");
+	document.write("<b>---------Bài 4------</b><BR>");
+	document.write("Dịch Hello sang các thứ tiếng khác nhau:<BR>");
+	document.write("Dịch sang các thứ tiếng khác nhau:" + Translate(ma));
+// Bài 5--------------------------------------------------
+		var arr=["false","false","false","true","false","true","false","true"]
+		function Inmang(a)
+			{
+				document.write("Mảng khởi tạo ban đầu là:<BR>");
+				for(var i=0;i<arr.length;i++)
+					{
+						 document.write(" "+arr[i]+" " );
+					}
+			}
+		function FirstShow(a)
+			{
+				var vitri;
+				var solan=0;
+				for(var i=0;i<a.length;i++)
+					{
+						if(a[i]=="true")
+							{
+								solan++;
+								vitri=i;
+							}
+						if(solan==1) return vitri;
+						
+					}
+			}
+		document.write("<BR>");
+	document.write("<b>---------Bài5------</b><BR>");
+	document.write("Tìm vị trí xuất hiện đầu tiên:<BR>");
+		Inmang(arr);
+	document.write("<BR>");
+	document.write("Giá trị True xuất hiện lần đầu tiên ở vị trí thứ :" + FirstShow(arr) +" trong mảng ");
+//Bài 6-------------------------------------------------
+	var mang=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+	function InMangchanle(arr)
+		{		
+				j=0;
+				while(j<=arr.length-1)
+				{
+					document.write("<span style=\"color:red;\">" + " "+ arr[j] +" "+"</span>");
+					for(i=j+1;i<=j+1;i++)						//vòng lặp này chỉ in ra 1 gia trí duy nhất
+						{
+							
+							document.write("<span style=\"color:blue\">"+ " "+arr[i]+" " +"</span>");
+							
+						}	
+					j=i;  										// gán biến j cho i để kiểm tra tiếp điều kiện của vòng while
+				}		
+		}
+
+	document.write("<BR>");
+	document.write("<b>---------Bài6------</b><BR>");
+	document.write("Dãy số in ra có kết quả là:<BR>");
+	InMangchanle(mang);
+	</script>
+
+</body>
+</html>
+
+
+
